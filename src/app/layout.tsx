@@ -17,6 +17,7 @@ import {
 import "./globals.css";
 import LogoutSuccessful from "./logout/page";
 import Loader from "./loader/page";
+import {ConvexClientProvider} from "./ConvexClientProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,7 +58,12 @@ export default function RootLayout({
           <SignedIn></SignedIn>
 
           <Protect>
-            <ClerkLoaded>{children}</ClerkLoaded>
+            <ClerkLoaded>
+              
+            <ConvexClientProvider>{children}</ConvexClientProvider>
+              
+              
+              </ClerkLoaded>
           </Protect>
         </body>
       </ClerkProvider>
