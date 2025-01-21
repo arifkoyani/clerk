@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { dark } from "@clerk/themes";
 
 import {
   ClerkProvider,
@@ -11,6 +12,7 @@ import {
   ClerkLoaded,
   UserButton,
   RedirectToSignIn,
+  SignUpButton,
 } from "@clerk/nextjs";
 import "./globals.css";
 import LogoutSuccessful from "./logout/page";
@@ -38,24 +40,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ClerkProvider afterSignOutUrl={"/"}>
-          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          >
-               <ClerkLoading>
-            <div><Loader/></div>
+      <ClerkProvider
+    
+      >
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ClerkLoading>
+            <div>
+              <Loader />
+            </div>
           </ClerkLoading>
-            <SignedOut>
-              <LogoutSuccessful />
-            </SignedOut>
+          <SignedOut>
+            <LogoutSuccessful />
+          </SignedOut>
+          <SignedIn></SignedIn>
 
-            <SignedIn></SignedIn>
-            <Protect>
-              
+          <Protect>
             <ClerkLoaded>{children}</ClerkLoaded>
-
-            </Protect>
-          </body>
+          </Protect>
+        </body>
       </ClerkProvider>
     </html>
   );

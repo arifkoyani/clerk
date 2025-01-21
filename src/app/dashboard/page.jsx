@@ -1,13 +1,21 @@
-"use client";
 
+"use client"
 import Link from "next/link";
-import { UserButton, ClerkLoaded, ClerkLoading, useUser, SignedOut, SignInButton } from "@clerk/nextjs";
+import {
+  UserButton,
+  ClerkLoaded,
+  ClerkLoading,
+  useUser,
+  SignedOut,
+  SignedIn,
+  SignInButton,
+  RedirectToSignIn,
+} from "@clerk/nextjs";
+
 import Loader from "../loader/page";
 
-export default function SuccessfulLoginLanding() {
+export default  function SuccessfulLoginLanding() {
   const { user } = useUser();
-  console.log(user);
-  console.log(user?.primaryEmailAddress.emailAddress, "ayaz");
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -24,7 +32,7 @@ export default function SuccessfulLoginLanding() {
               You've successfully logged in. Here's your dashboard.
             </p>
           </div>
-
+    
           <div>
             <UserButton afterSwitchSessionUrl="/login" />
           </div>
@@ -60,6 +68,8 @@ export default function SuccessfulLoginLanding() {
           />
         </div>
       </ClerkLoaded>
+
+      <div></div>
     </div>
   );
 }

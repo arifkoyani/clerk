@@ -1,5 +1,5 @@
 "use client";
-import { SignOutButton } from "@clerk/nextjs";
+import { SignOutButton, SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Dashboard from "./dashboard/page";
@@ -31,6 +31,12 @@ export default function Mainpage() {
               dashboard
             </button>
           </Link>
+
+          <SignedIn>
+            <div>
+              <h1>this is only content show in login Process</h1>
+            </div>
+          </SignedIn>
         </>
       </div>
     </>

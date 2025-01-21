@@ -1,13 +1,11 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
-const isPrivateRoute = createRouteMatcher(['/dashboard(.*)'])
-
+const isPrivateRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)']);
 export default clerkMiddleware(async (auth, request) => {
   if (isPrivateRoute(request)) {
-    await auth.protect()
+    await auth.protect();
   }
-})
-
+});
 export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
@@ -16,3 +14,4 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 }
+
