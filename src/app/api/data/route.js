@@ -17,6 +17,8 @@ export async function GET() {
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     };
+  
+
 
     try {
       const newUserId = await fetchMutation(api.todos.createClerkUsers, userData);

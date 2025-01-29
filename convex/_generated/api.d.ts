@@ -13,7 +13,10 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as formUsers from "../formUsers.js";
+import type * as names from "../names.js";
 import type * as todos from "../todos.js";
+import type * as toggle from "../toggle.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -24,7 +27,10 @@ import type * as todos from "../todos.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  formUsers: typeof formUsers;
+  names: typeof names;
   todos: typeof todos;
+  toggle: typeof toggle;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
