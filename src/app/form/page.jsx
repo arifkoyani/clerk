@@ -1,14 +1,15 @@
 "use client";
-import { use, useEffect, useState } from "react";
-import { useMutation } from "convex/react";
+import { useState } from "react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
-export default function Form() {
+export default  function Form() {
   const CreateUsers = useMutation(api.formUsers.formData);
   const yesOrNo = useMutation(api.toggle.yesOrNo);
   const createName = useMutation(api.names.myNames);
+  const checkdata=useQuery(api.toggle.getchecks)
+
   const [name, setName] = useState("");
   const [check, setcheck] = useState(false);
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -50,10 +51,10 @@ export default function Form() {
   };
 
   const handlecheck = async (e) => {
-    setcheck(e.target.checked);
+    const newCheck = e.target.checked;
+    setcheck(newCheck);
     try {
-      await yesOrNo({ check });
-      alert("clear yes or No");
+      await yesOrNo( { check: newCheck });
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +62,6 @@ export default function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     try {
       await CreateUsers(formData);
       alert("form submit");
@@ -111,11 +111,16 @@ export default function Form() {
       month: "",
       week: "",
     });
+
+
   };
+
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <form onSubmit={handleSubmit} onReset={handleReset} className="space-y-4">
+  {checkdata?.length > 0 && checkdata[0]?.check ?<>
+    
+    <form onSubmit={handleSubmit} onReset={handleReset} className="space-y-4">
         <input
           type="text"
           name="firstName"
@@ -298,8 +303,17 @@ export default function Form() {
           </button>
         </div>
       </form>
+    
+    
+    
+    </>:(
+      <>
+      <h1>this ihide</h1>
+      </>
+    )}
+      
 
-      <form onSubmit={namehandle}>
+      {/* <form onSubmit={namehandle}>
         <label className="text-black font-extrabold">Enter the name only</label>
         <input
           className="text-black "
@@ -309,8 +323,7 @@ export default function Form() {
         <button type="submit">add name</button>
       </form>
 
-      <label className="text-black font-extrabold">Enter the yes or NO</label>
-      {console.warn("this is output", check)}
+      <label className="text-black font-extrabold">Enter the yes or NO</label> */}
       <input
         type="checkbox"
         className="text-black "

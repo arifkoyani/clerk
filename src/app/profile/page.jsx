@@ -29,7 +29,7 @@ const Profile =  () => {
 
         <button>submit</button>
       </form>
-  
+ 
       <main className="flex bg-black text-white min-h-screen flex-col items-center justify-between p-24">
         {tasks?.map(({ _id, text }) => (
           <div key={_id} className="bg-blue-900 p-2 my-2 px-16 rounded-xl hover:bg-blue-800">
