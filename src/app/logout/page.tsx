@@ -20,7 +20,10 @@ export default function LogoutSuccessful() {
             Do you want to log back in?
           </p>
 
-          <SignInButton forceRedirectUrl={"/profile"}>Login in account</SignInButton>
+          <SignInButton
+          mode="modal"
+          
+          forceRedirectUrl={"/profile"}>Login in account</SignInButton>
         </div>
       </div>
     </div>
