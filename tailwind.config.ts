@@ -17,6 +17,10 @@ export default {
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       keyframes: {
+        fadeIn: {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
         scroll: {
           to: {
             transform: "translate(calc(-50% - 0.5rem))",
@@ -27,6 +31,12 @@ export default {
         foreground: "var(--foreground)",
       },
     },}
+
+    
+  },
+
+  animation: {
+    fadeIn: "fadeIn 0.5s ease-in",
   },
   plugins: [addVariablesForColors],
     function ({ matchUtilities, theme }: any) {
