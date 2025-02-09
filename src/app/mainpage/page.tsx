@@ -12,7 +12,7 @@ import { Mic } from "lucide-react";
 import { TabsDemo } from "../tabs/tabs";
 import GithubCardSkew from "../Animata-card/page";
 import ImageCarousel from "../image-carousel/image-carousel";
-import { AnimatedCursor } from '../cursor/cursor'
+import { GlowingEffectDemo } from "../border/page";
 
 
 export default function Mainpage() {
@@ -117,6 +117,10 @@ export default function Mainpage() {
     }
   ]}
  />
+      </div>
+
+      <div>
+        <GlowingEffectDemo/>
       </div>
     </div>
 
