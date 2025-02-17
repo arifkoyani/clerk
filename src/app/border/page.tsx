@@ -1,7 +1,5 @@
 "use client";
-
 import { GlowingEffect } from "../ui/glowing-effect";
-
 export function GlowingEffectDemo() {
   return (
     <>
@@ -18,14 +16,10 @@ export function GlowingEffectDemo() {
             inactiveZone={0.01}
           />
         </div>
-
-
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores doloremque a debitis asperiores autem ratione dignissimos, eveniet beatae nulla corporis esse. Perferendis id architecto praesentium nobis eaque quibusdam numquam doloremque.
         </p>
       </div>
-
     </>
-
   );
 }

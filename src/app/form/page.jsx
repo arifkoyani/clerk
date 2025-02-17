@@ -322,8 +322,10 @@ export default  function Form() {
         />
         <button type="submit">add name</button>
       </form>
-
-      <label className="text-black font-extrabold">Enter the yes or NO</label> */}
+async (params) => {
+  
+  
+}      <label className="text-black font-extrabold">Enter the yes or NO</label> */}
       <input
         type="checkbox"
         className="text-black "
